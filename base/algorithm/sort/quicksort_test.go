@@ -2,6 +2,7 @@ package sort
 
 import (
 	"math/rand"
+	"slices"
 	"testing"
 	"time"
 )
@@ -16,4 +17,6 @@ func TestQuickSort(t *testing.T) {
 	t.Log(items)
 	QuickSort(items)
 	t.Log(items)
+
+	slices.Sort(items)
 }

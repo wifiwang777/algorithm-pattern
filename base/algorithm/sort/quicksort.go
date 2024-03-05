@@ -1,10 +1,12 @@
 package sort
 
-func QuickSort[T int | string](items []T) {
+import "cmp"
+
+func QuickSort[T cmp.Ordered](items []T) {
 	quickSort(items, 0, len(items)-1)
 }
 
-func quickSort[T int | string](items []T, left, right int) {
+func quickSort[T cmp.Ordered](items []T, left, right int) {
 	if left >= right {
 		return
 	}
@@ -13,7 +15,7 @@ func quickSort[T int | string](items []T, left, right int) {
 	quickSort(items, pivot+1, right)
 }
 
-func partition[T int | string](items []T, left, right int) int {
+func partition[T cmp.Ordered](items []T, left, right int) int {
 	for left < right {
 		for left < right && items[right] >= items[left] {
 			right--
